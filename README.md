@@ -5,7 +5,7 @@
 ## User Story
 As a business owner
 I want to be able to view and manage the departments, roles, and employees in my company
-So that I can organize and plan my business
+* So that I can organize and plan my business
 
   ## Table of Contents
   * [Description](#description)
@@ -24,15 +24,17 @@ So that I can organize and plan my business
 
   <a name = 'usefaq'></a>
   ## Usage
-  Uses npm i inqirer, 
-  * npm init to create a json file, 
-  * npm i mysql to connect to SQL database, 
-  * npm i console.table to format tables in the console
+  This is a command line interface, and must be run through a command line in your terminal
 
   <a name = 'install'></a>
-  ## Installation
-  npm i - to install all files and dependencies
-
+  ## Installation   
+    Please use npm 
+    npm i - to install all files and dependencies OR
+  * npm init to create a json file,
+  * npm i inqirer to install inquirer,  
+  * npm i mysql to connect to MYSQL database, 
+  * npm i console.table to format tables in the console
+  
   <a name = 'run'></a>
   ## Run
   node index.js
@@ -40,17 +42,18 @@ So that I can organize and plan my business
   <a name = 'dependencies'></a>
   ## Dependencies
   ![image of dependencies screenshot:](dependencies.png)
-    "console.table": "^0.10.0",
-    "dotenv": "^16.0.3",
-    "express": "^4.18.2",
-    "inquirer": "^8.2.5",
-    "mysql": "^2.18.1",
-    "mysql2": "^2.3.3"
+    * "console.table": "^0.10.0",
+    * "dotenv": "^16.0.3",
+    * "express": "^4.18.2",
+    * "inquirer": "^8.2.5",
+    * "mysql": "^2.18.1",
+    * "mysql2": "^2.3.3"
 
     
   <a name = 'techno'></a>
   ## Technologies Used
   * Javascript
+  * jQuery
   * Node.js
   * MYSQL  
 
@@ -71,4 +74,4 @@ So that I can organize and plan my business
   This app can be found on my github page at (https://github.com/Sara-Mill).
   Sara-Mill
 
-  If you have any questions or need to contact me about this app, I can be reached on Github or by email at [smilligan0183@gmail.com](smilligan0183@gmail.com)
+  If you have any questions or need to contact me about this app, I can be reached on Github or by email at [smilligan0183@gmail.com](email)
