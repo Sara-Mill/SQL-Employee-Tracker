@@ -26,19 +26,19 @@ connection.connect(err => {
 })
 
 const promptMessages = {
-  viewAllDepartments: "View All Departments",
-  viewAllRoles: "View All Roles",
-  viewAllEmployees: "View All Employees",
-  addDepartment: "Add A Department",
-  addRole: "Add A Role",
-  addEmployee: "Add An Employee",
-  updateRole: "Update Employee Role",
+    viewAllDepartments: "View All Departments",
+    viewAllRoles: "View All Roles",
+    viewAllEmployees: "View All Employees",
+    addDepartment: "Add A Department",
+    addRole: "Add A Role",
+    addEmployee: "Add An Employee",
+    updateRole: "Update Employee Role",
 
-  viewByDepartment: "View All Employees By Department",
-  viewByManager: "View All Employees By Manager",
-  removeEmployee: "Remove An Employee",
-  updateEmployeeManager: "Update Employee Manager",
-  exit: "Exit"
+    viewByDepartment: "View All Employees By Department",
+    viewByManager: "View All Employees By Manager",
+    removeEmployee: "Remove An Employee",
+    updateEmployeeManager: "Update Employee Manager",
+    exit: "Exit"
 };
 
 function prompt() {
@@ -47,20 +47,20 @@ function prompt() {
       name: 'action',
       type: 'list',
       message: "What would you like to do?",
-        choices: [
-          promptMessages.viewAllDepartments,
-          promptMessages.viewAllRoles,
-          promptMessages.viewAllEmployees,
-          promptMessages.addDepartment,
-          promptMessages.addRole,
-          promptMessages.addEmployee,
-          promptMessages.updateRole,
+          choices: [
+            promptMessages.viewAllDepartments,
+            promptMessages.viewAllRoles,
+            promptMessages.viewAllEmployees,
+            promptMessages.addDepartment,
+            promptMessages.addRole,
+            promptMessages.addEmployee,
+            promptMessages.updateRole,
 
-          promptMessages.viewByDepartment,
-          promptMessages.viewByManager,
-          promptMessages.removeEmployee,
-          promptMessages.exit,
-        ]
+            promptMessages.viewByDepartment,
+            promptMessages.viewByManager,
+            promptMessages.removeEmployee,
+            promptMessages.exit,
+          ]
     })
     .then(answers => {
       console.log('answer', answers);
@@ -88,23 +88,23 @@ function prompt() {
         case promptMessages.viewByDepartment:
             showByDepartment();
             break;
-    }})
-}
+    }});
+};
 
 function showDepartments() {
   const query = `SELECT department.id AS id, 
                         department.name AS name 
                         FROM department`;
       connection.query(query, (err, res) => {
-        if (err) throw err;
-        console.log(res);
-        console.log('\n');
-        console.log('VIEW ALL DEPARTMENTS');
-        console.log('\n');
-        console.table(res);
-        prompt();
-    });
-}
+          if (err) throw err;
+          console.log(res);
+          console.log('\n');
+          console.log('VIEW ALL DEPARTMENTS');
+          console.log('\n');
+          console.table(res);
+          prompt();
+      });
+};
 
 function showAllRoles() {
   const query = `SELECT role.id AS id, 
@@ -114,15 +114,15 @@ function showAllRoles() {
                         FROM role
                   INNER JOIN department ON role.department_id = department.id`;
       connection.query(query, (err, res) => {
-        if (err) throw err;
-        console.log(res);
-        console.log('\n');
-        console.log('VIEW ALL ROLES');
-        console.log('\n');
-        console.table(res);
-        prompt();
-    });
-}
+          if (err) throw err;
+          console.log(res);
+          console.log('\n');
+          console.log('VIEW ALL ROLES');
+          console.log('\n');
+          console.table(res);
+          prompt();
+      });
+};
 
 function showAllEmployees() {
   const query = `SELECT employee.id, 
@@ -138,43 +138,45 @@ function showAllEmployees() {
                   INNER JOIN department ON (department.id = role.department_id)
                   ORDER BY employee.id;`;
       connection.query(query, (err, res) => {
-        if (err) throw err;
-        console.log(res);
-        console.log('\n');
-        console.log('VIEW ALL EMPLOYEES');
-        console.log('\n');
-        console.table(res);
-        prompt();
-    });
-}
+          if (err) throw err;
+          console.log(res);
+          console.log('\n');
+          console.log('VIEW ALL EMPLOYEES');
+          console.log('\n');
+          console.table(res);
+          prompt();
+      });
+};
 
 async function addDepartment () {
-  inquirer.prompt([
-    {
-      type: 'input',
-      name: 'addDept',
-      message: "What department do you want to add?",
-      validate: addDept => {
-        if (addDept) {
-          return true;
-        } else {
-          console.log("Please enter a department");
-          return false;
+    inquirer.prompt([
+        {
+          type: 'input',
+          name: 'addDept',
+          message: "What department do you want to add?",
+          validate: addDept => {
+            if (addDept) {
+              return true;
+            } else {
+              console.log("Please enter a department");
+              return false;
+            };
+          }
         }
-      }
-    }
-  ])
-    .then(answer => {
-      const query = `INSERT INTO department (name)
-                VALUES (?)`;
-        connection.query(query, answer.addDept, (err, result) => {
-          if (err) throw err;
-          console.log("Added" + answer.addDept + "to departments");
+    ])
+      .then(answer => {
+          const query = `INSERT INTO department 
+                        (name)
+                        VALUES (?)`;
+              connection.query(query, answer.addDept, (err, result) => {
+                if (err) throw err;
+                console.log("Added" + answer.addDept + "to departments");
+              });
 
-          showDepartments();
-    })     
-  })
-}
+      showDepartments(); 
+
+      });
+};
 
 async function addRole () {
     inquirer.prompt([
@@ -196,16 +198,16 @@ async function addRole () {
           name: 'salary',
           message: "What is the salary of this role?",
           validate: addSalary => {
-              if (addSalary) {
-                return true;
-              } else {
-                console.log("Please enter a salary");
-                return false;
-              }
+            if (addSalary) {
+              return true;
+            } else {
+              console.log("Please enter a salary");
+              return false;
+            }
           }
         }
       ])
-          .then(answer => {
+        .then(answer => {
             const params = [answer.role, answer.salary];
 
             const roleQuery = `SELECT name, id FROM department`;
@@ -216,28 +218,29 @@ async function addRole () {
               const dept = data.map(({ name, id}) => ({name: name, value: id }));
 
               inquirer.prompt ([
-                {
-                  type: 'list',
-                  name: 'dept',
-                  message: "What department is this role in?",
-                  choices: dept
-                }
+                        {
+                          type: 'list',
+                          name: 'dept',
+                          message: "What department is this role in?",
+                          choices: dept
+                        }
               ])
                 .then(deptChoice => {
-                  const dept = deptChoice.dept;
-                  params.push(dept);
+                          const dept = deptChoice.dept;
+                          params.push(dept);
 
-                  const query = `INSERT INTO role (title, salary, department_id)
-                                VALUES (?, ?, ?)`;
-                      connection.query(query, params, (err, result) => {
-                        if (err) throw err;
-                        console.log("Added" + answer.role + "to roles");
+                          const query = `INSERT INTO role (title, salary, department_id)
+                                        VALUES (?, ?, ?)`;
+                              connection.query(query, params, (err, result) => {
+                                if (err) throw err;
+                                console.log("Added" + answer.role + "to roles");
+                              });
 
-                        showAllRoles();
-                      });
+        showAllRoles();
+
                 });
-          });
-    });
+            });
+        });
 };
 
 function showByDepartment() {
@@ -251,14 +254,14 @@ function showByDepartment() {
                   LEFT JOIN department ON (department.id = role.department_id)
                   ORDER BY department.name;`;
       connection.query(query, (err, res) => {
-        if(err) throw err;
-        console.log('/n');
-        console.log('View Employee by Department');
-        console.log('/n');
-        console.table(res);
-        prompt();
+          if(err) throw err;
+          console.log('/n');
+          console.log('View Employee by Department');
+          console.log('/n');
+          console.table(res);
+          prompt();
       });
-}
+};
 
 prompt();
 
