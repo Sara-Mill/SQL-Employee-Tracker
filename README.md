@@ -60,7 +60,7 @@ I WANT to be able to view and manage the departments, roles, and employees in my
 
 <a name ='demo'></a>
   ## Demo
-  [!Demo of app](demo.png)(https://www.youtube.com/embed/Fn3TJaxQDrA)
+  ![image of demo screenshot:](demo.png)
 
   <a name = 'test'></a>
   ## Testing
