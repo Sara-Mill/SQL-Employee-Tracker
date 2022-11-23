@@ -100,6 +100,10 @@ function prompt() {
         case promptMessages.viewByDepartment:
             showByDepartment();
             break;
+
+        case promptMessages.removeEmployee:
+          removeEmployee();
+          break;
     }});
 };
 
@@ -412,6 +416,25 @@ function showByDepartment() {
       });
 };
 
+async function removeEmployee() {
+  const answer = await inquirer.prompt([
+    {
+        name: 'fisrt',
+        type: 'input',
+        message: "Please enter the empoyee id you want to remove: "
+    }
+  ]);
+  connection.query('DELETE FROM employee WHERE ?',
+  {
+      id: answer.fisrt
+  },
+  function (err) {
+    if (err) throw err;
+  }
+  )
+  console.log('Employee has been removed on the system');
+  prompt();;
+}
 prompt();
 
 // Default response for any other request (Not Found)
