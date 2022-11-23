@@ -77,6 +77,10 @@ function prompt() {
             showAllEmployees();
             break;
         
+        case promptMessages.addDepartment:
+            addDepartment();
+            break;
+
         case promptMessages.viewByDepartment:
             showByDepartment();
             break;
@@ -138,6 +142,34 @@ function showAllEmployees() {
         console.table(res);
         prompt();
     });
+}
+
+async function addDepartment () {
+  inquirer.prompt([
+    {
+      type: 'input',
+      name: 'addDept',
+      message: "What department do you want to add?",
+      validate: addDept => {
+        if (addDept) {
+          return true;
+        } else {
+          console.log("Please enter a department");
+          return false;
+        }
+      }
+    }
+  ])
+    .then(answer => {
+      const query = `INSERT INTO department (name)
+                VALUES (?)`;
+        connection.query(query, answer.addDept, (err, result) => {
+          if (err) throw err;
+          console.log('Added' + answer.addDept + "to departments");
+
+          showDepartments();
+    })     
+  })
 }
 
 function showByDepartment() {
