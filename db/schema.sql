@@ -8,7 +8,12 @@ CREATE TABLE employee (
   first_name VARCHAR(30) NOT NULL,
   last_name VARCHAR(30) NOT NULL,
   role_id INT,
+  INDEX role_ind (role_id),
+  CONSTRAINT fk_role FOREIGN KEY (role_id) REFERNECES role(id) ON DELETE CASCADE
   manager_id INT
+  INDEX man_ind (manager_id),
+  CONSTRAINT fk_manager FOREIGN KEY (manager_id) REFERENCES employee(id) ON DELETE CASCADE
+
 );
 
 CREATE TABLE department (
@@ -46,10 +51,10 @@ INSERT INTO employee
   (first_name, last_name, role_id, manager_id)
 VALUES
   ('Virginia', 'Vermillion', 1, NULL),
-  ('Ronald', 'Kelly', 1, NULL),
-  ('Stacy', 'Wilke', 2, NULL),
-  ('Edgar', 'Rogers', 2, NULL),
-  ('Andrew', 'Monroe', 3, NULL),
-  ('Frank', 'Townsend', 3, NULL),
-  ('Jill', 'Polk', 4, NULL),
-  ('Ruth', 'Willimas', 4, NULL);
+  ('Ronald', 'Kelly', 2, 1),
+  ('Stacy', 'Wilke', 3, NULL),
+  ('Edgar', 'Rogers', 4, 3),
+  ('Andrew', 'Monroe', 5, NULL),
+  ('Frank', 'Townsend', 6, 5),
+  ('Jill', 'Polk', 7, NULL),
+  ('Ruth', 'Willimas', 8, 7);

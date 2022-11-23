@@ -3,8 +3,7 @@ const express = require('express');
 const mysql = require('mysql2');
 const inquirer = require('inquirer');
 require('console.table');
-
-const connection = require('./config/connection')
+require('dotenv').config();
 
 const PORT = process.env.PORT || 3001;
 const app = express();
@@ -13,6 +12,18 @@ const app = express();
 app.use(express.urlencoded({ extended: false }));
 app.use(express.json());
 
+const connection = mysql.createConnection({
+  host: 'localhost',
+  port: 3306,
+
+  user: process.env.DB_USER,
+  password: process.env.DB_PASSWORD,
+  database: process.env.DB_NAME
+});
+
+connection.connect(err => {
+  if (err) throw err;
+})
 
 const promptMessages = {
   viewAllEmployees: "View All Employees",
@@ -61,6 +72,7 @@ function viewAllEmployees() {
   ORDER BY employee.id;`;
     connection.query(query, (err, res) => {
       if (err) throw err;
+      console.log(res);
       console.log('\n');
       console.log('VIEW ALL EMPLOYEES');
       console.log('\n');
@@ -68,6 +80,8 @@ function viewAllEmployees() {
       prompt();
   });
 }
+
+
 
 prompt();
 
