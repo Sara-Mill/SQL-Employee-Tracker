@@ -89,6 +89,10 @@ function prompt() {
             addEmployee();
             break;
 
+        case promptMessages.updateRole:
+          updateRole();
+          break;
+
         case promptMessages.viewByDepartment:
             showByDepartment();
             break;
@@ -323,6 +327,46 @@ function askName(){
       name: 'last',
       type: 'input',
       message: "Please enter the last name:"
+    }
+  ]);
+};
+
+async function updateRole() {
+  const employeeId = await inquirer.prompt(askId());
+
+  connection.query('SELECT role.id, role.title FROM role ORDER BY role.id;', async (err, res) => {
+    if (err) throw err;
+    const {role} = await inquirer.prompt([
+      {
+          name: 'role',
+          type: 'list',
+          choices: () => res.map(res => res.title),
+          message: "What is the new role for this employee?:"
+      }
+    ]);
+    let roleId;
+    for (const row of res) {
+      if (row.title === role) {
+        roleId = row.id;
+        continue;
+      }
+    }
+    connection.query(`UPDATE employee
+    SET role_id = ${roleId}
+    WHERE employee.id = ${employeeId.name}`, async (err, res) => {
+      if (err) throw err;
+      console.log("Role has been updated")
+      prompt();
+    });
+  });
+};
+
+function askId() {
+  return ([
+    {
+        name: 'name',
+        type: 'input',
+        message: "What is the employee id?:"
     }
   ]);
 };
