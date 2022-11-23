@@ -1,8 +1,12 @@
 # SQL-Employee-Tracker
-## Project Title
-  ## SQL -EmployeeTracker
+
   [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
   
+## User Story
+As a business owner
+I want to be able to view and manage the departments, roles, and employees in my company
+So that I can organize and plan my business
+
   ## Table of Contents
   * [Description](#description)
   * [Usage](#usefaq)
@@ -21,9 +25,9 @@
   <a name = 'usefaq'></a>
   ## Usage
   Uses npm i inqirer, 
-  *npm init to create a json file, 
-  *npm i mysql to connect to SQL database, 
-  *npm i console.table to format tables in the console
+  * npm init to create a json file, 
+  * npm i mysql to connect to SQL database, 
+  * npm i console.table to format tables in the console
 
   <a name = 'install'></a>
   ## Installation
@@ -32,6 +36,17 @@
   <a name = 'run'></a>
   ## Run
   node index.js
+
+  <a name = 'dependencies'></a>
+  ## Dependencies
+  ![image of dependencies screenshot:](dependencies.png)
+    "console.table": "^0.10.0",
+    "dotenv": "^16.0.3",
+    "express": "^4.18.2",
+    "inquirer": "^8.2.5",
+    "mysql": "^2.18.1",
+    "mysql2": "^2.3.3"
+
     
   <a name = 'techno'></a>
   ## Technologies Used
