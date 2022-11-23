@@ -42,7 +42,7 @@ I WANT to be able to view and manage the departments, roles, and employees in my
 
   <a name = 'dependencies'></a>
   ## Dependencies
-  ![image of dependencies screenshot:](dependencies.png)
+  ![image of dependencies screenshot:](./images/dependencies.png)
     * "console.table": "^0.10.0",
     * "dotenv": "^16.0.3",
     * "express": "^4.18.2",
@@ -60,7 +60,7 @@ I WANT to be able to view and manage the departments, roles, and employees in my
 
 <a name ='demo'></a>
   ## Demo
-  ![image of demo screenshot:](demo.png)
+  ![image of demo screenshot:](./images/demo.png)
 
   To watch the application in action, click [here](https://www.youtube.com/embed/Fn3TJaxQDrA)
 
