@@ -4,14 +4,16 @@
   
 ## User Story
 As a business owner
-I WANT to be able to view and manage the departments, roles, and employees in my company  SO THAT I can organize and plan my business
+I WANT to be able to view and manage the departments, roles, and employees in my company  SO THAT I can organize and plan my business.
 
   ## Table of Contents
   * [Description](#description)
   * [Usage](#usefaq)
   * [Installation](#install)
   * [Run](#run)
+  * [Dependencies](#dependencies)
   * [Technology Used](#techno)
+  * [Demo](#demo)
   * [Testing](#test)
   * [License](#license)
   * [Contributing to this Repo](#contributing)
@@ -55,6 +57,9 @@ I WANT to be able to view and manage the departments, roles, and employees in my
   * jQuery
   * Node.js
   * MYSQL  
+
+<a name ='demo'></a>
+  ## Demo
 
   <a name = 'test'></a>
   ## Testing
