@@ -4,7 +4,7 @@
   
 ## User Story
 As a business owner
-I want to be able to view and manage the departments, roles, and employees in my company  So that I can organize and plan my business
+I WANT to be able to view and manage the departments, roles, and employees in my company  SO THAT I can organize and plan my business
 
   ## Table of Contents
   * [Description](#description)
@@ -66,11 +66,11 @@ I want to be able to view and manage the departments, roles, and employees in my
 
   <a name = 'contributing'></a>
   ## Contributing to this Repo
-  Please email me if you'd like to contribute
+  Please [email](smilligan0183@gmail.com) me if you'd like to contribute
 
   <a name = 'questions'></a>
   ## Questions / Contact Details
   This app can be found on my github page at [Sara-Mill](https://github.com/Sara-Mill).
   
 
-  If you have any questions or need to contact me about this app, I can be reached on Github or by [email](smilligan0183@gmail.com)
+  If you have any questions or need to contact me about this app, I can be reached on [Github](https://github.com/Sara-Mill) or by [email](smilligan0183@gmail.com)
