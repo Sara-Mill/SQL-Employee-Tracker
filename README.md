@@ -4,8 +4,7 @@
   
 ## User Story
 As a business owner
-I want to be able to view and manage the departments, roles, and employees in my company
-* So that I can organize and plan my business
+I want to be able to view and manage the departments, roles, and employees in my company  So that I can organize and plan my business
 
   ## Table of Contents
   * [Description](#description)
@@ -29,7 +28,7 @@ I want to be able to view and manage the departments, roles, and employees in my
   <a name = 'install'></a>
   ## Installation   
     Please use npm 
-    npm i - to install all files and dependencies OR
+  * npm i - to install all files and dependencies OR
   * npm init to create a json file,
   * npm i inqirer to install inquirer,  
   * npm i mysql to connect to MYSQL database, 
@@ -71,7 +70,7 @@ I want to be able to view and manage the departments, roles, and employees in my
 
   <a name = 'questions'></a>
   ## Questions / Contact Details
-  This app can be found on my github page at (https://github.com/Sara-Mill).
-  Sara-Mill
+  This app can be found on my github page at [Sara-Mill](https://github.com/Sara-Mill).
+  
 
-  If you have any questions or need to contact me about this app, I can be reached on Github or by email at [email](smilligan0183@gmail.com)
+  If you have any questions or need to contact me about this app, I can be reached on Github or by [email](smilligan0183@gmail.com)
