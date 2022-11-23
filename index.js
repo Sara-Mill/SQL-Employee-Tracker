@@ -159,7 +159,6 @@ function showAllEmployees() {
                   ORDER BY employee.id;`;
       connection.query(query, (err, res) => {
           if (err) throw err;
-          console.log(res);
           console.log('\n');
           console.log('VIEW ALL EMPLOYEES');
           console.log('\n');
