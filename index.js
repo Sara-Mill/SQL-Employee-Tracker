@@ -104,6 +104,10 @@ function prompt() {
         case promptMessages.removeEmployee:
           removeEmployee();
           break;
+
+        case promptMessages.exit:
+          exit();
+          break;
     }});
 };
 
@@ -293,7 +297,7 @@ async function addEmployee() {
       let managerId;
       let managerName;
       if(manager === 'none') {
-        managerId = null;
+        managerId = 0;
       } else {
         for (const data of res) {
           data.fullName = `${data.first_name} ${data.last_name}`;
@@ -435,6 +439,16 @@ async function removeEmployee() {
   console.log('Employee has been removed on the system');
   prompt();;
 }
+
+async function exit() {
+  connection.end(function(err) {
+    if (err) {
+      return console.log('error:' + err.message);
+    }
+    console.log('Close the database connection.');
+  });
+};
+
 prompt();
 
 // Default response for any other request (Not Found)
