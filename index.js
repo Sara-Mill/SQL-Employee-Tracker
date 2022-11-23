@@ -54,11 +54,15 @@ function prompt() {
           promptMessages.exit,
         ]
     })
-    .then(answer => {
-      console.log('answer', answer);
-      switch (answer.action) {
+    .then(answers => {
+      console.log('answer', answers);
+      switch (answers.action) {
         case promptMessages.viewAllEmployees:
             viewAllEmployees();
+            break;
+        
+        case promptMessages.viewByDepartment:
+            viewByDepartment();
             break;
     }})
 }
@@ -81,7 +85,21 @@ function viewAllEmployees() {
   });
 }
 
-
+function viewByDepartment() {
+  const query = `SELECT department.name AS department, role.title, employee.id, employee.first_name, employee.last_name
+    FROM employee
+    LEFT JOIN role ON (role.id = employee.role_id)
+    LEFT JOIN department ON (department.id = role.department_id)
+    ORDER BY department.name;`;
+      connection.query(query, (err, res) => {
+        if(err) throw err;
+        console.log('/n');
+        console.log('View Employee by Department');
+        console.log('/n');
+        console.table(res);
+        prompt();
+      });
+}
 
 prompt();
 

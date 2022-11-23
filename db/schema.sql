@@ -8,12 +8,8 @@ CREATE TABLE employee (
   first_name VARCHAR(30) NOT NULL,
   last_name VARCHAR(30) NOT NULL,
   role_id INT,
-  INDEX role_ind (role_id),
-  CONSTRAINT fk_role FOREIGN KEY (role_id) REFERNECES role(id) ON DELETE CASCADE
   manager_id INT
-  INDEX man_ind (manager_id),
-  CONSTRAINT fk_manager FOREIGN KEY (manager_id) REFERENCES employee(id) ON DELETE CASCADE
-
+  
 );
 
 CREATE TABLE department (
